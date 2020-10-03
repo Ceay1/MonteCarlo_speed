@@ -1,10 +1,10 @@
 # Summary
 
-Monte Carlo method is a standard tool to obtain numercial results. The method, however, is very slow compared with other possible alternatives.
+Monte Carlo method is a standard tool to solve models. The method, however, is very slow compared with other possible alternatives.
 
-The Python example below compares speed of the two methods that calculate the pi number: (1) Monte Carlo and (2) numerical integration. Both methods calculate the area of one quadrant of the unitary circle and multiply the result by 4 in order to arrive at the pi number.
+The Python example below compares speed of two methods that calculate the pi number: (1) Monte Carlo and (2) numerical integration. Both methods calculate the area of one quadrant of the unitary circle and multiply the result by 4 in order to arrive at the pi number.
 
-With 1 million simulations, a typical error of Monte Carlo method is e-3 (the number is random and depends in the program on the seed), while numerical integration has an error of e-15. Monte Carlo method takes 4 seconds, while numerical integration finishes in 0.0002 seconds. Adjusted for the error, numerical integration method is so efficient that all the computing power in the world, if used for Monte Carlo simulation, would not match the speed of the numerical integration method to achieve the same precision.
+With 1 million simulations, a typical error of the Monte Carlo method is e-3 (the number is random and depends on the seed), while numerical integration has an error of e-15. Monte Carlo method takes 1.2 seconds, while numerical integration finishes in 0.0001 seconds. The numerical integration method is so efficient that all the computing power in the world, if used for Monte Carlo simulation, would not match the speed of the numerical integration method to achieve the same precision.
 
 To achieve the same precision, one needs to increase the number of simulations by the squared ratio of the precisions, because precision of Monte Carlo improves as square root of the numer of simulations.
 
@@ -27,7 +27,7 @@ print("\nPi: ", pi,"\n")
 
 start=timer()
 count=0
-for i in range(N): count += ((uniform(0,1)**2 + uniform(0,1)**2)<=1)
+for _ in range(N): count += ((uniform(0,1)**2 + uniform(0,1)**2)<=1)
 pi_MC=count/N*4
 time_MC=timer()-start
 precision_MC_obs=abs(pi_MC-pi)
@@ -40,7 +40,7 @@ print("*** Monte Carlo ***\n")
 print("Number of simulations: {:,}".format(N))
 print("Estimate of pi:", pi_MC)
 print("Observed error:", precision_MC_obs)
-print("Theoretical 99.7% interval for error (3 std):", precision_MC_empir)
+print("Theoretical error for 99.7% confidence (3 std):", precision_MC_empir)
 print("Time: {:0.5f} seconds".format(time_MC))
 
 # **** Numerical integration ****
@@ -58,8 +58,8 @@ print("Observed error:", precision_int)
 print("Time: {:0.5f} seconds".format(time_int))
 
 
-print("\nYears needed to achieve numerical integration method precision through Monte Carlo simulations: {:,}".format(\
-          int(pow(precision_MC_obs/precision_int,2)*time_MC/(3600*24*365.25))))
+print("\nYears to achieve numerical integration precision through Monte Carlo simulations: {:,}".\
+      format(int(pow(precision_MC_obs/precision_int,2)*time_MC/(3600*24*365.25))))
 ```
 
 # Python output
@@ -72,14 +72,14 @@ Pi:  3.141592653589793
 Number of simulations: 1,000,000
 Estimate of pi: 3.142616
 Observed error: 0.001023346410206738
-Theoretical 99.7% interval for error (3 std): 0.004926550103208972
-Time: 3.32635 seconds
+Theoretical error for 99.7% confidence (3 std): 0.004926550103208972
+Time: 1.32222 seconds
 
 *** Numerical integration ***
 
 Estimate of pi: 3.141592653589792
 Observed error: 1e-15
-Time: 0.00023 seconds
+Time: 0.00044 seconds
 
-Years needed to achieve numerical integration method precision through Monte Carlo simulations: 110,384,671,459,449,392
+Years to achieve numerical integration precision through Monte Carlo simulations: 43,877,971,433,502,272
 ```
