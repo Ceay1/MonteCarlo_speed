@@ -73,13 +73,14 @@ Number of simulations: 1,000,000
 Estimate of pi: 3.142616
 Observed error: 0.001023346410206738
 Theoretical error for 99.7% confidence (3 std): 0.004926550103208972
-Time: 1.32222 seconds
+Time: 1.17200 seconds
 
 *** Numerical integration ***
 
 Estimate of pi: 3.141592653589792
 Observed error: 1e-15
-Time: 0.00044 seconds
+Time: 0.00012 seconds
 
-Years to achieve numerical integration precision through Monte Carlo simulations: 43,877,971,433,502,272
+Years to achieve numerical integration precision through Monte Carlo simulations: 38,892,640,486,620,824
+
 ```
