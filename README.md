@@ -6,7 +6,7 @@ The Python example below compares speed of two methods that calculate the pi num
 
 With 1 million simulations, a typical error of the Monte Carlo method is e-3 (the number is random and depends on the seed), while numerical integration has an error of e-15. Monte Carlo method takes 1.2 seconds, while numerical integration finishes in 0.0001 seconds. The numerical integration method is so efficient that all the computing power in the world, if used for Monte Carlo simulation, would not match the speed of the numerical integration method to achieve the same precision.
 
-To achieve the same precision, one needs to increase the number of simulations by the squared ratio of the precisions, because precision of Monte Carlo improves as square root of the numer of simulations.
+To achieve the same precision, one needs to increase the number of simulations by the squared ratio of the precisions, because precision of Monte Carlo improves as the square root of the numer of simulations.
 
 # Python script
 
